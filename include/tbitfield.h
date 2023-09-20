@@ -16,18 +16,21 @@ private:
     size_t bitLen;   // длина битового поля - макс. к-во битов
     uint *pMem;      // память для представления битового поля
     size_t memLen;   // к-во эл-тов uint для представления бит.поля //длина массива pMem
-
+    
     // методы реализации
     size_t getIndex(const size_t n) const; // индекс в pМем для бита n
     uint getMask(const size_t n) const;    // битовая маска для бита n
-                                 
+    
 public:
      TBitField(size_t len);
      TBitField(const TBitField &bf);
      ~TBitField();
-
+     size_t capacity()
+     {
+         return  sizeof(uint) * 8;
+     }
     // доступ к битам
-    uint getLength() const;            // получить длину (к-во битов)
+     uint getLength() const;            // получить длину (к-во битов)
     size_t getNumBytes() const;        // получить количество байт выделенной памяти
     void setBit(const size_t n);       // установить бит
     void clrBit(const size_t n);       // очистить бит

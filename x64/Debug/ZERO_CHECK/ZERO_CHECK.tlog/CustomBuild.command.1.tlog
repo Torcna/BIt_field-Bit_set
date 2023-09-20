@@ -1,0 +1,10 @@
+^C:\USERS\79065\ONEDRIVE\РАБОЧИЙ СТОЛ\C++ PROGS\MP2-LAB1-SET-CODE\CMAKEFILES\5016AC114470990AE800DF8564764A77\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/79065/OneDrive/Рабочий стол/C++ progs/mp2-lab1-set-code" "-BC:/Users/79065/OneDrive/Рабочий стол/C++ progs/mp2-lab1-set-code" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "C:/Users/79065/OneDrive/Рабочий стол/C++ progs/mp2-lab1-set-code/set.sln"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

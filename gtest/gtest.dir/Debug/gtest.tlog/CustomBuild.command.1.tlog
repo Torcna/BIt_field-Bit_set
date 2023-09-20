@@ -1,0 +1,10 @@
+^C:\USERS\79065\ONEDRIVE\РАБОЧИЙ СТОЛ\C++ PROGS\MP2-LAB1-SET-CODE\GTEST\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/79065/OneDrive/Рабочий стол/C++ progs/mp2-lab1-set-code" "-BC:/Users/79065/OneDrive/Рабочий стол/C++ progs/mp2-lab1-set-code" --check-stamp-file "C:/Users/79065/OneDrive/Рабочий стол/C++ progs/mp2-lab1-set-code/gtest/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

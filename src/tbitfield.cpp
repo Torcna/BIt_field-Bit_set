@@ -11,7 +11,13 @@
 
 TBitField::TBitField(size_t len)
 {
-   
+    bitLen = len;
+    memLen = 1 + len / capacity();
+    this->pMem = new uint[memLen];
+    for (int i = 0; i < memLen; i++)
+    {
+        this->pMem[i] = this->pMem[i] & 0;
+    }
 }
 
 TBitField::TBitField(const TBitField &bf) // конструктор копирования
@@ -21,18 +27,20 @@ TBitField::TBitField(const TBitField &bf) // конструктор копиро
 
 size_t TBitField::getIndex(const size_t n) const  // индекс в pМем для бита n
 {
-    return 0;
+    return (n/sizeof(uint)*8);
 }
 
 uint TBitField::getMask(const size_t n) const // битовая маска для бита n
 {
-    return 0;
+    uint temp = 0;
+    temp = temp | 1 << (n % (sizeof(uint) * 8));
+    return temp;
 }
 
 // доступ к битам битового поля
 uint TBitField::getLength() const // получить длину (к-во битов)
 {
-    return 0;
+    return bitLen;
 }
 
 size_t TBitField::getNumBytes() const // получить количество байт выделенной памяти
@@ -42,27 +50,55 @@ size_t TBitField::getNumBytes() const // получить количество �
 
 void TBitField::setBit(const size_t n) // установить бит
 {
-
+    int elemPosArray = getIndex(n);
+    pMem[elemPosArray] = pMem[elemPosArray] | 1 << (n % capacity()) - 1;
 }
 
 void TBitField::clrBit(const size_t n) // очистить бит
 {
-
+    int elemPosArray = getIndex(n);
+    uint mask = ~(getMask(n));
+    this->pMem[elemPosArray] = pMem[elemPosArray] & mask;
 }
 
 bool TBitField::getBit(const size_t n) const // получить значение бита
 {
-    return false;
+    int elemPosArray = getIndex(n);
+    int number_in_uint = n % (sizeof(uint)*8);
+    uint temp = (uint)pMem[elemPosArray];
+    int t=0;
+    int ans = 0;
+    while (temp)
+    {
+        ans = temp % 2;
+        t++;
+        if ((sizeof(uint) * 8) == n - t + 1)
+        {
+            return ans;
+        }
+        
+        temp /= 2;
+    }
 }
 
 // битовые операции
 TBitField& TBitField::operator=(const TBitField &bf) // присваивание
 {
+    delete[] pMem;
+    bitLen = bf.bitLen;
+    memLen = bf.memLen;
+    this->pMem = new uint[memLen];
+    for (int i = 0; i < memLen; i++)
+    {
+        this->pMem[i] = bf.pMem[i];
+    }
     return *this;
 }
 
 bool TBitField::operator==(const TBitField &bf) const // сравнение
 {
+    if (bf.bitLen != this->bitLen)
+        return false;
     return true;
 }
 

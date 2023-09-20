@@ -1,0 +1,6 @@
+C:/Users/79065/OneDrive/Рабочий стол/C++ progs/mp2-lab1-set-code/CMakeFiles/ALL_BUILD.dir
+C:/Users/79065/OneDrive/Рабочий стол/C++ progs/mp2-lab1-set-code/CMakeFiles/ZERO_CHECK.dir
+C:/Users/79065/OneDrive/Рабочий стол/C++ progs/mp2-lab1-set-code/src/CMakeFiles/set.dir
+C:/Users/79065/OneDrive/Рабочий стол/C++ progs/mp2-lab1-set-code/samples/CMakeFiles/sample_prime_numbers.dir
+C:/Users/79065/OneDrive/Рабочий стол/C++ progs/mp2-lab1-set-code/gtest/CMakeFiles/gtest.dir
+C:/Users/79065/OneDrive/Рабочий стол/C++ progs/mp2-lab1-set-code/test/CMakeFiles/test_set.dir
