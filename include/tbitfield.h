@@ -7,9 +7,13 @@
 
 #pragma once
 #include <iosfwd>
-
+#include <exception>
 typedef unsigned int uint;
 
+class exeption_large
+{
+    
+};
 class TBitField
 {
 private:

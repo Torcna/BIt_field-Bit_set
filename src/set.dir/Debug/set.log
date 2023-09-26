@@ -1,8 +1,13 @@
 ﻿  tbitfield.cpp
-C:\Users\79065\OneDrive\Рабочий стол\C++ progs\mp2-lab1-set-code\src\tbitfield.cpp(43,18): warning C4267: return: преобразование из "size_t" в "uint"; возможна потеря данных
-C:\Users\79065\OneDrive\Рабочий стол\C++ progs\mp2-lab1-set-code\src\tbitfield.cpp(53,35): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\79065\OneDrive\Рабочий стол\C++ progs\mp2-lab1-set-code\src\tbitfield.cpp(54,72): warning C4554: "<<": проверьте приоритет операторов на ошибки; для уточнения приоритета используйте скобки
-C:\Users\79065\OneDrive\Рабочий стол\C++ progs\mp2-lab1-set-code\src\tbitfield.cpp(59,35): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\79065\OneDrive\Рабочий стол\C++ progs\mp2-lab1-set-code\src\tbitfield.cpp(66,35): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\79065\OneDrive\Рабочий стол\C++ progs\mp2-lab1-set-code\src\tbitfield.cpp(82): warning C4715: TBitField::getBit: значение возвращается не при всех путях выполнения
+C:\Users\79065\OneDrive\Рабочий стол\C++ progs\mp2-lab1-set-code\src\tbitfield.cpp(61,18): warning C4267: return: преобразование из "size_t" в "uint"; возможна потеря данных
+C:\Users\79065\OneDrive\Рабочий стол\C++ progs\mp2-lab1-set-code\src\tbitfield.cpp(78,39): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\79065\OneDrive\Рабочий стол\C++ progs\mp2-lab1-set-code\src\tbitfield.cpp(93,35): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\79065\OneDrive\Рабочий стол\C++ progs\mp2-lab1-set-code\src\tbitfield.cpp(110,39): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\79065\OneDrive\Рабочий стол\C++ progs\mp2-lab1-set-code\src\tbitfield.cpp(193,13): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\79065\OneDrive\Рабочий стол\C++ progs\mp2-lab1-set-code\src\tbitfield.cpp(206,13): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\79065\OneDrive\Рабочий стол\C++ progs\mp2-lab1-set-code\src\tbitfield.cpp(235,35): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\79065\OneDrive\Рабочий стол\C++ progs\mp2-lab1-set-code\src\tbitfield.cpp(237,32): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\79065\OneDrive\Рабочий стол\C++ progs\mp2-lab1-set-code\src\tbitfield.cpp(239,28): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\79065\OneDrive\Рабочий стол\C++ progs\mp2-lab1-set-code\src\tbitfield.cpp(241,25): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\79065\OneDrive\Рабочий стол\C++ progs\mp2-lab1-set-code\src\tbitfield.cpp(260,5): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
   set.vcxproj -> C:\Users\79065\OneDrive\Рабочий стол\C++ progs\mp2-lab1-set-code\lib\Debug\set.lib

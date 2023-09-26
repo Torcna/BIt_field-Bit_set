@@ -1,1 +1,7 @@
-﻿  sample_prime_numbers.vcxproj -> C:\Users\79065\OneDrive\Рабочий стол\C++ progs\mp2-lab1-set-code\bin\sample_prime_numbers.exe
+﻿sample_prime_numbers.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: __cdecl TBitField::TBitField(unsigned __int64)" (??0TBitField@@QEAA@_K@Z) в функции main.
+sample_prime_numbers.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: __cdecl TBitField::~TBitField(void)" (??1TBitField@@QEAA@XZ) в функции main.
+sample_prime_numbers.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: void __cdecl TBitField::setBit(unsigned __int64)" (?setBit@TBitField@@QEAAX_K@Z) в функции main.
+sample_prime_numbers.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: void __cdecl TBitField::clrBit(unsigned __int64)" (?clrBit@TBitField@@QEAAX_K@Z) в функции main.
+sample_prime_numbers.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: bool __cdecl TBitField::getBit(unsigned __int64)const " (?getBit@TBitField@@QEBA_N_K@Z) в функции main.
+sample_prime_numbers.obj : error LNK2019: ссылка на неразрешенный внешний символ "class std::basic_ostream<char,struct std::char_traits<char> > & __cdecl operator<<(class std::basic_ostream<char,struct std::char_traits<char> > &,class TBitField const &)" (??6@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV01@AEBVTBitField@@@Z) в функции main.
+C:\Users\79065\OneDrive\Рабочий стол\C++ progs\mp2-lab1-set-code\bin\sample_prime_numbers.exe : fatal error LNK1120: неразрешенных внешних элементов: 6
