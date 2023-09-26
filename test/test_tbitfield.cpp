@@ -200,7 +200,7 @@ TEST(TBitField, and_operator_applied_to_bitfields_of_non_equal_size)
 
 TEST(TBitField, can_invert_bitfield)
 {
-    
+
     const size_t size = 2;
     TBitField bf(size), negBf(size), expNegBf(size);
     // bf = 01
@@ -209,7 +209,7 @@ TEST(TBitField, can_invert_bitfield)
     // expNegBf = 10
     expNegBf.setBit(0);
     EXPECT_EQ(expNegBf, negBf);
-    
+
 }
 
 TEST(TBitField, can_invert_large_bitfield)
@@ -219,7 +219,7 @@ TEST(TBitField, can_invert_large_bitfield)
     bf.setBit(35);
     negBf = ~bf;
 
-    for(size_t i = 0; i < size; i++)
+    for (size_t i = 0; i < size; i++)
         expNegBf.setBit(i);
     expNegBf.clrBit(35);
 
@@ -263,7 +263,7 @@ TEST(TBitField, can_invert_many_random_bits_bitfield)
 
     negBf = ~bf;
 
-    for(size_t i = 0; i < size; i++)
+    for (size_t i = 0; i < size; i++)
         expNegBf.setBit(i);
     for (size_t i = 0; i < bits.size(); i++)
         expNegBf.clrBit(bits[i]);
