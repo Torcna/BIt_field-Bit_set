@@ -27,17 +27,17 @@ size_t TSet::getMaxPower() const // получить макс. к-во эл-то
     return 0;
 }
 
-bool TSet::isMember(const elType elem) const // элемент множества?
+bool TSet::isMember(const uint elem) const // элемент множества?
 {
     return false;
 }
 
-void TSet::insElem(const elType elem) // включение элемента множества
+void TSet::insElem(const uint elem) // включение элемента множества
 {
 
 }
 
-void TSet::delElem(const elType elem) // исключение элемента множества
+void TSet::delElem(const uint elem) // исключение элемента множества
 {
 
 }
@@ -63,12 +63,12 @@ TSet TSet::operator+(const TSet &s) // объединение
     return TSet(1);
 }
 
-TSet TSet::operator+(const elType elem) // объединение с элементом
+TSet TSet::operator+(const uint elem) // объединение с элементом
 {
     return TSet(1);
 }
 
-TSet TSet::operator-(const elType elem) // разность с элементом
+TSet TSet::operator-(const uint elem) // разность с элементом
 {
     return TSet(1);
 }

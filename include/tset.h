@@ -20,17 +20,17 @@ public:
 
   // доступ к битам
   size_t getMaxPower() const;           // максимальная мощность множества
-  void insElem(const elType elem);        // включить элемент в множество
-  void delElem(const elType elem);        // удалить элемент из множества
-  bool isMember(const elType elem) const; // проверить наличие элемента в множестве
+  void insElem(const uint elem);        // включить элемент в множество
+  void delElem(const uint elem);        // удалить элемент из множества
+  bool isMember(const uint elem) const; // проверить наличие элемента в множестве
 
   // теоретико-множественные операции
   bool operator==(const TSet &s) const; // сравнение
   bool operator!=(const TSet &s) const; // сравнение
   TSet& operator=(const TSet &s);  // присваивание
-  TSet operator+(const elType elem); // объединение с элементом
+  TSet operator+(const uint elem); // объединение с элементом
                                    // элемент должен быть из того же универса
-  TSet operator-(const elType elem); // разность с элементом
+  TSet operator-(const uint elem); // разность с элементом
                                    // элемент должен быть из того же универса
   TSet operator+(const TSet &s);   // объединение
   TSet operator*(const TSet &s);   // пересечение

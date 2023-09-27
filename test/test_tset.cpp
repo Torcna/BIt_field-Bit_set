@@ -14,7 +14,7 @@ TEST(TSet, can_get_max_power_set)
 TEST(TSet, can_insert_non_existing_element)
 {
     const size_t size = 5;
-    const elType k = 3;
+    const uint k = 3;
     TSet set(size);
     set.insElem(k);
 
@@ -24,7 +24,7 @@ TEST(TSet, can_insert_non_existing_element)
 TEST(TSet, can_insert_existing_element)
 {
     const size_t size = 5;
-    const elType k = 3;
+    const uint k = 3;
     TSet set(size);
     set.insElem(k);
     set.insElem(k);
@@ -35,7 +35,7 @@ TEST(TSet, can_insert_existing_element)
 TEST(TSet, can_delete_non_existing_element)
 {
     const size_t size = 5;
-    const elType k = 3;
+    const uint k = 3;
   TSet set(size);
   set.delElem(k);
 
@@ -45,7 +45,7 @@ TEST(TSet, can_delete_non_existing_element)
 TEST(TSet, can_delete_existing_element)
 {
     const size_t size = 5;
-    const elType k = 3;
+    const uint k = 3;
     TSet set(size);
 
     set.insElem(k);
@@ -130,7 +130,7 @@ TEST(TSet, can_assign_set_of_less_size)
 TEST(TSet, can_insert_non_existing_element_using_plus_operator)
 {
     const size_t size = 4;
-    const elType k = 3;
+    const uint k = 3;
     TSet set(size), updatedSet(size);
     set.insElem(0);
     set.insElem(2);
@@ -142,7 +142,7 @@ TEST(TSet, can_insert_non_existing_element_using_plus_operator)
 TEST(TSet, throws_when_insert_non_existing_element_out_of_range_using_plus_operator)
 {
     const size_t size = 4;
-    const elType k = 6;
+    const uint k = 6;
     TSet set(size), updatedSet(size);
     set.insElem(0);
     set.insElem(2);
@@ -153,7 +153,7 @@ TEST(TSet, throws_when_insert_non_existing_element_out_of_range_using_plus_opera
 TEST(TSet, can_insert_existing_element_using_plus_operator)
 {
     const size_t size = 4;
-    const elType k = 3;
+    const uint k = 3;
     TSet set(size), updatedSet(size);
     set.insElem(0);
     set.insElem(k);

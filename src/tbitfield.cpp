@@ -24,7 +24,7 @@ size_t TBitField::getIndex(const size_t n) const  // индекс в pМем д�
     return 0;
 }
 
-elType TBitField::getMask(const size_t n) const // битовая маска для бита n
+uint TBitField::getMask(const size_t n) const // битовая маска для бита n
 {
     return 0;
 }
@@ -37,7 +37,7 @@ size_t TBitField::getLength() const // получить длину (к-во би
 
 size_t TBitField::getNumBytes() const // получить количество байт выделенной памяти
 {
-    return memLen * sizeof(elType);
+    return memLen * sizeof(uint);
 }
 
 void TBitField::setBit(const size_t n) // установить бит
