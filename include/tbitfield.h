@@ -24,7 +24,10 @@ public:
     TBitField(size_t len);
     TBitField(const TBitField& bf);
     ~TBitField();
-
+    int capacity()
+    {
+        return (sizeof(uint) * 8);
+    }
     // доступ к битам
     size_t getLength() const;          // получить длину (к-во битов)
     size_t getNumBytes() const;        // получить количество байт выделенной памяти
