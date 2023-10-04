@@ -195,7 +195,7 @@ TBitField TBitField::operator|(const TBitField& bf) // операция "или"
             for (int i = 0; i < bitLen; i++)
             {
                 if (bf.getBit(i) == 1 || getBit(i) == 1)
-                    result.setBit(i);
+result.setBit(i);
             }
             for (int i = bitLen; i < bf.bitLen; i++)
                 if (bf.getBit(i) == 1)
@@ -204,18 +204,18 @@ TBitField TBitField::operator|(const TBitField& bf) // операция "или"
         }
         else
         {
-            TBitField result(bitLen);
-            for (int i = 0; i < bitLen - bf.bitLen; i++)
-            {
-                if (getBit(i) == 1)
-                    result.setBit(i);
-            }
-            for (int i = bitLen - bf.bitLen; i < bitLen; i++)
-            {
-                if (bf.getBit(i - (bitLen - bf.bitLen)) == 1 || this->getBit(i) == 1)
-                    result.setBit(i);
-            }
-            return result;
+        TBitField result(bitLen);
+        for (int i = 0; i < bitLen - bf.bitLen; i++)
+        {
+            if (getBit(i) == 1)
+                result.setBit(i);
+        }
+        for (int i = bitLen - bf.bitLen; i < bitLen; i++)
+        {
+            if (bf.getBit(i - (bitLen - bf.bitLen)) == 1 || this->getBit(i) == 1)
+                result.setBit(i);
+        }
+        return result;
         }
     }
 }
@@ -280,10 +280,46 @@ TBitField::~TBitField()
 // ввод/вывод
 std::istream& operator>>(std::istream& istr, TBitField& bf) // ввод
 {
+    using namespace std;
+    int n;
+    cin >> bf.bitLen;
+    if (bf.bitLen == 0)
+    {
+        bf.memLen = 0;
+    }
+    if (bf.bitLen < 0)
+    {
+        FatalError a;
+        throw a;
+    }
+    bf.memLen = bf.bitLen / (sizeof(uint) * 8) + 1;
+    
+    bf.pMem = new uint[bf.memLen];
+    for (int i = 0; i < bf.memLen; i++)
+        istr >> bf.pMem[i];
     return istr;
 }
 
 std::ostream& operator<<(std::ostream& ostr, const TBitField& bf) // вывод
 {
+
+
+    for (int i = 0; i < bf.memLen - 1; i++)
+    {
+
+
+        uint temp = (uint)bf.pMem[i];
+        int t = 0;
+        int ans = 0;
+        std::string str = "";
+        int w = sizeof(uint) * 8;
+        for (int i = 0; i < w; i++)
+        {
+            str = std::to_string(temp % 2) + str;
+            temp /= 2;
+        }
+        ostr << str;
+    }
+    
     return ostr;
 }

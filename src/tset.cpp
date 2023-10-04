@@ -154,10 +154,17 @@ TSet TSet::operator~() // дополнение
 // перегрузка ввода/вывода
 std::istream& operator>>(std::istream& istr, TSet& s) // ввод
 {
+    using namespace std;
+
+    istr >> s.maxPower;
+    istr >> s.bitField;
+
+    
     return istr;
 }
 
 std::ostream& operator<<(std::ostream& ostr, const TSet& s) // вывод
 {
+    ostr << s.bitField;
     return ostr;
 }
