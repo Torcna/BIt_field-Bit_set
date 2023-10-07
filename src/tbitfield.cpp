@@ -21,11 +21,11 @@ TBitField::TBitField(size_t len)
 {
     bitLen = len;
     if (len > 0)
-        memLen = 1 + len / capacity();
+        memLen = 1 + (len-1) / capacity();
     else if (len == 0)
         memLen = 0;
 
-    this->pMem = new uint[memLen];
+    this->pMem = new myuint[memLen];
     for (int i = 0; i < memLen; i++)
     {
         this->pMem[i] = 0;
@@ -36,7 +36,7 @@ TBitField::TBitField(const TBitField& bf) // конструктор копиро
 {
     this->bitLen = bf.bitLen;
     this->memLen = bf.memLen;
-    this->pMem = new uint[memLen];
+    this->pMem = new myuint[memLen];
     for (int i = 0; i < this->memLen; i++)
     {
         this->pMem[i] = bf.pMem[i];
@@ -45,30 +45,34 @@ TBitField::TBitField(const TBitField& bf) // конструктор копиро
 
 size_t TBitField::getIndex(const size_t n) const  // индекс в pМем для бита n
 {
-    return (n / (sizeof(uint) * 8));
+    return (n / (sizeof(myuint) * 8));
 }
 
-uint TBitField::getMask(const size_t n) const // битовая маска для бита n
+myuint TBitField::getMask(const size_t n) const // битовая маска для бита n
 {
-    uint temp = 0;
-    temp = temp | 1 << (n % (sizeof(uint) * 8));
+    myuint temp = 0;
+    int r = sizeof(myuint);
+    int y = n % (sizeof(myuint) * 8);
+    myuint op = 1;
+    temp = temp | op << (n % (sizeof(myuint) * 8));
+
     return temp;
 }
 
 // доступ к битам битового поля
-uint TBitField::getLength() const // получить длину (к-во битов)
+myuint TBitField::getLength() const // получить длину (к-во битов)
 {
     return bitLen;
 }
 
 size_t TBitField::getNumBytes() const // получить количество байт выделенной памяти
 {
-    return memLen * sizeof(uint);
+    return memLen * sizeof(myuint);
 }
 
 void TBitField::setBit(const size_t n) // установить бит
 {
-    if (bitLen < n)
+    if (bitLen <= n)
     {
         FatalError a;
         throw a;
@@ -91,7 +95,7 @@ void TBitField::clrBit(const size_t n) // очистить бит
     else
     {
         int elemPosArray = getIndex(n);
-        uint mask = ~(getMask(n));
+        myuint mask = ~(getMask(n));
         this->pMem[elemPosArray] = pMem[elemPosArray] & mask;
     }
 }
@@ -108,24 +112,24 @@ bool TBitField::getBit(const size_t n) const // получить значени�
     else
     {
         int elemPosArray = getIndex(n);
-        int number_in_uint = n % (sizeof(uint) * 8);
+        
         /*
-        uint temp = (uint)pMem[elemPosArray];
+        myuint temp = (myuint)pMem[elemPosArray];
         int t = 0;
         int ans = 0;
         string str = "";
-        int w = sizeof(uint) * 8;
+        int w = sizeof(myuint) * 8;
         for (int i = 0; i < w; i++)
         {
             str = to_string(temp % 2) + str;
             temp /= 2;
         }
-        if (str[sizeof(uint) * 8 - number_in_uint - 1] == '1')
+        if (str[sizeof(myuint) * 8 - number_in_uint - 1] == '1')
             return true;
         else
             return false;*/
-        uint temp(bitLen);
-        temp = getMask(number_in_uint);
+        myuint temp;
+        temp = getMask(n);
         if (temp & pMem[elemPosArray])
             return true;
         else
@@ -139,7 +143,7 @@ TBitField& TBitField::operator=(const TBitField& bf) // присваивание
     delete[]pMem;
     bitLen = bf.bitLen;
     memLen = bf.memLen;
-    pMem = new uint[memLen];
+    pMem = new myuint[memLen];
     for (int i = 0; i < memLen; i++)
     {
         pMem[i] = bf.pMem[i];
@@ -195,7 +199,7 @@ TBitField TBitField::operator|(const TBitField& bf) // операция "или"
             for (int i = 0; i < bitLen; i++)
             {
                 if (bf.getBit(i) == 1 || getBit(i) == 1)
-result.setBit(i);
+                    result.setBit(i);
             }
             for (int i = bitLen; i < bf.bitLen; i++)
                 if (bf.getBit(i) == 1)
@@ -204,18 +208,18 @@ result.setBit(i);
         }
         else
         {
-        TBitField result(bitLen);
-        for (int i = 0; i < bitLen - bf.bitLen; i++)
-        {
-            if (getBit(i) == 1)
-                result.setBit(i);
-        }
-        for (int i = bitLen - bf.bitLen; i < bitLen; i++)
-        {
-            if (bf.getBit(i - (bitLen - bf.bitLen)) == 1 || this->getBit(i) == 1)
-                result.setBit(i);
-        }
-        return result;
+            TBitField result(bitLen);
+            for (int i = 0; i < bitLen - bf.bitLen; i++)
+            {
+                if (getBit(i) == 1)
+                    result.setBit(i);
+            }
+            for (int i = bitLen - bf.bitLen; i < bitLen; i++)
+            {
+                if (bf.getBit(i - (bitLen - bf.bitLen)) == 1 || this->getBit(i) == 1)
+                    result.setBit(i);
+            }
+            return result;
         }
     }
 }
@@ -292,9 +296,9 @@ std::istream& operator>>(std::istream& istr, TBitField& bf) // ввод
         FatalError a;
         throw a;
     }
-    bf.memLen = bf.bitLen / (sizeof(uint) * 8) + 1;
-    
-    bf.pMem = new uint[bf.memLen];
+    bf.memLen = bf.bitLen / (sizeof(myuint) * 8) + 1;
+
+    bf.pMem = new myuint[bf.memLen];
     for (int i = 0; i < bf.memLen; i++)
         istr >> bf.pMem[i];
     return istr;
@@ -308,11 +312,11 @@ std::ostream& operator<<(std::ostream& ostr, const TBitField& bf) // вывод
     {
 
 
-        uint temp = (uint)bf.pMem[i];
+        myuint temp = (myuint)bf.pMem[i];
         int t = 0;
         int ans = 0;
         std::string str = "";
-        int w = sizeof(uint) * 8;
+        int w = sizeof(myuint) * 8;
         for (int i = 0; i < w; i++)
         {
             str = std::to_string(temp % 2) + str;
@@ -320,6 +324,6 @@ std::ostream& operator<<(std::ostream& ostr, const TBitField& bf) // вывод
         }
         ostr << str;
     }
-    
+
     return ostr;
 }

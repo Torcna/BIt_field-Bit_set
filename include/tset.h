@@ -20,8 +20,7 @@ public:
 
   // доступ к битам
   size_t getMaxPower() const;           // максимальная мощность множества
-  void insElem(const 
-      elem);        // включить элемент в множество
+  void insElem(const myuint elem);        // включить элемент в множество
   void delElem(const myuint elem);        // удалить элемент из множества
   bool isMember(const myuint elem) const; // проверить наличие элемента в множестве
 
